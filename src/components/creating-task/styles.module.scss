@@ -1,0 +1,57 @@
+.creatingTask {
+  border: 1px solid var(--color-gray);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-light);
+
+  &__title {
+    margin: 0 0 20px 0;
+  }
+
+  &__fieldWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  &__fieldLabel {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  &__submitButtonWrapper {
+    width: 200px;
+  }
+  & button {
+    padding: 10px 18px;
+    font-weight: 500;
+    font-size: 14px;
+
+    color: var(--color-light);
+    background-color: var(--color-accent);
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+    transition:
+      background-color 0.15s,
+      box-shadow 0.15s,
+      transform 0.05s;
+
+    &:hover {
+      background: var(--color-light-accent);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 1px var(--color-dark);
+    }
+  }
+}

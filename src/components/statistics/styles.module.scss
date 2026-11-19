@@ -1,0 +1,52 @@
+.statistics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+
+  &__number {
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  &__line {
+    width: 100%;
+    height: 8px;
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    border-radius: 999px;
+    background: var(--color-light-gray);
+    overflow: hidden;
+
+    // ---------- WebKit (Chrome, Safari, Edge) ----------
+    &::-webkit-progress-bar {
+      background: var(--color-light-gray);
+      border-radius: 999px;
+    }
+
+    &::-webkit-progress-value {
+      background: var(--color-accent);
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+
+    // ---------- Firefox ----------
+    &::-moz-progress-bar {
+      background: var(--color-light-gray);
+      border-radius: 999px;
+    }
+
+    &::-moz-progress-bar {
+      background: var(--color-accent);
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.statCard {
+  border: 1px solid var(--color-gray);
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: var(--color-light);
+
+  &__title {
+    color: var(--color-gray);
+  }
+
+  &__statValue {
+    font-size: 30px;
+    font-weight: 600;
+  }
+}

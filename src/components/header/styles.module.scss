@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  flex-direction: column;
+
+  &__subTitle {
+    margin-bottom: 10px;
+    color: var(--color-accent);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin: 0 0 5px 0;
+    font-size: 40px;
+  }
+
+  &__desc {
+    color: var(--color-gray);
+  }
+}

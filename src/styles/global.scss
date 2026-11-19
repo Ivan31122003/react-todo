@@ -1,0 +1,81 @@
+:root {
+  --font-main: "Inter", sans-serif;
+
+  --color-dark: #202124;
+  --color-gray: #666666;
+  --color-light-gray: #f1f1f1;
+  --color-light: #ffffff;
+
+  --color-accent: #cc00ff;
+  --color-light-accent: #e57eff;
+
+  --color-orange: #ae6500;
+  --color-light-orange: #f5debf;
+
+  --color-green: #218e00;
+  --color-light-green: #c3ffb0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-light-gray);
+  font-family: var(--font-main);
+  color: var(--color-dark);
+}
+
+input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: var(--color-dark);
+  border: 1px solid var(--color-gray);
+  border-radius: 8px;
+  outline: none;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+
+  &::placeholder {
+    color: var(--color-gray);
+  }
+
+  &:hover {
+    border-color: var(--color-dark);
+  }
+
+  &:focus {
+    border-color: var(--color-accent);
+  }
+}
+
+textarea {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: var(--color-dark);
+  border: 1px solid var(--color-gray);
+  border-radius: 8px;
+  outline: none;
+  resize: vertical;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+
+  &::placeholder {
+    color: var(--color-gray);
+  }
+
+  &:hover {
+    border-color: var(--color-dark);
+  }
+
+  &:focus {
+    border-color: var(--color-accent);
+  }
+}
