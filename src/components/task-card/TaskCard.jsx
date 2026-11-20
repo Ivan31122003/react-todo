@@ -1,7 +1,7 @@
-import { useId } from "react";
-import classes from "./styles.module.scss";
+import { useId } from 'react';
+import classes from './styles.module.scss';
 
-export const TaskCard = ({ toggleCompleted, removeTask, ...task }) => {
+export const TaskCard = ({ toggleCompleted, removeTask, editTask, ...task }) => {
   const titleId = useId();
 
   return (
@@ -16,29 +16,28 @@ export const TaskCard = ({ toggleCompleted, removeTask, ...task }) => {
         ></input>
         <div className={classes.info}>
           <label htmlFor={titleId}>
-            <h3
-              className={`${classes.info__title} ${task.completed && classes["info__title--completed"]}`}
-            >
+            <h3 className={`${classes.info__title} ${task.completed && classes['info__title--completed']}`}>
               {task.title}
             </h3>
           </label>
-          {task.description?.length > 0 && (
-            <span className={classes.info__desc}>{task.description}</span>
-          )}
+          {task.description?.length > 0 && <span className={classes.info__desc}>{task.description}</span>}
           <span
             className={`${classes.info__status} ${
-              task.completed
-                ? classes["info__status--completed"]
-                : classes["info__status--inProgress"]
+              task.completed ? classes['info__status--completed'] : classes['info__status--inProgress']
             }`}
           >
-            {task.completed ? "Завершена" : "В работе"}
+            {task.completed ? 'Завершена' : 'В работе'}
           </span>
         </div>
       </div>
 
-      <div className={classes.taskCard__controls}>
-        <button onClick={() => removeTask(task.id)}>Удалить</button>
+      <div className={classes.controls}>
+        <button className="default-button" onClick={() => editTask(task.id)}>
+          Редактировать
+        </button>
+        <button className="default-button" onClick={() => removeTask(task.id)}>
+          Удалить
+        </button>
       </div>
     </div>
   );

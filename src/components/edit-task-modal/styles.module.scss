@@ -1,0 +1,17 @@
+.editForm {
+  &__fieldWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  &__fieldLabel {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  &__submitButtonWrapper {
+    width: 200px;
+  }
+}

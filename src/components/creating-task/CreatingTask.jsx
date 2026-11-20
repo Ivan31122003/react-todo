@@ -1,27 +1,27 @@
-import { useId, useState } from "react";
-import classes from "./styles.module.scss";
+import { useId, useState } from 'react';
+import classes from './styles.module.scss';
 
 export const CreatingTask = ({ onCreateNewTask }) => {
   const firstId = useId();
   const secondId = useId();
 
   const [newTask, setNewTask] = useState({
-    title: "",
-    description: "",
+    title: '',
+    description: '',
     completed: false,
   });
 
-  const handleTitleInput = (e) => {
+  const handleTitleInput = e => {
     const newTitle = e.target.value;
     setNewTask({ ...newTask, title: newTitle });
   };
 
-  const handleDescriptionInput = (e) => {
+  const handleDescriptionInput = e => {
     const newDescription = e.target.value;
     setNewTask({ ...newTask, description: newDescription });
   };
 
-  const createTask = (e) => {
+  const createTask = e => {
     e.preventDefault();
     if (newTask.title.trim().length === 0) {
       alert('Поле "Название задачи" не заполнено');
@@ -59,7 +59,9 @@ export const CreatingTask = ({ onCreateNewTask }) => {
       </div>
 
       <div className={classes.creatingTask__submitButtonWrapper}>
-        <button type="submit">Добавить задачу</button>
+        <button className="default-button" type="submit">
+          Добавить задачу
+        </button>
       </div>
     </form>
   );
