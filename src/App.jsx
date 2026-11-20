@@ -1,34 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import classes from './App.module.scss';
+import { localStorageService } from './services';
 import { Header } from './components/header';
 import { Statistics } from './components/statistics';
 import { CreatingTask } from './components/creating-task';
 import { Tasks } from './components/tasks';
 import { EditTaskModal } from './components/edit-task-modal';
 
-const initialTasks = [
-  {
-    id: 1,
-    title: 'Изучить основы React',
-    description: 'Разобраться с компонентами, props и state',
-    completed: false,
-  },
-  {
-    id: 2,
-    title: 'Сделать учебный проект',
-    description: 'Собрать простой менеджер задач',
-    completed: true,
-  },
-  {
-    id: 3,
-    title: 'Повторить JavaScript',
-    description: 'Массивы, объекты и функции',
-    completed: false,
-  },
-];
-
 export const App = () => {
-  const [tasks, setTasks] = useState(initialTasks);
+  const [tasks, setTasks] = useState(() => localStorageService.loadTasks());
   const [searchValue, setSearchValue] = useState('');
   const [currentFilter, setCurrentFilter] = useState('all');
   const [editableTaskId, setEditableTaskId] = useState(null);
@@ -44,6 +24,10 @@ export const App = () => {
     return filterMatch && searchMatch;
   });
   const editableTask = tasks.find(task => task.id === editableTaskId);
+
+  useEffect(() => {
+    localStorageService.saveTasks(tasks);
+  }, [tasks]);
 
   const createNewTask = newTask => {
     setTasks([...tasks, { ...newTask, id: Date.now() }]);
